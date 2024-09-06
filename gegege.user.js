@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         MemeFI Autoclicker
-// @version      1.0
+// @version      1.01
 // @namespace    cheltbl
 // @author       cheltbl
 // @match        https://tg-app.memefi.club/*
@@ -520,4 +520,4 @@ loadSettings();
 updateSettingsMenu();
 
 let attempts = 0;
-
+toggleAutoSpin()
