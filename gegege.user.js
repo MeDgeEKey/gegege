@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         MemeFI Autoclicker
 // @version      1.0
+// @namespace    cheltbl
 // @author       cheltbl
 // @match        https://tg-app.memefi.club/*
 // @grant        none
 // @icon         https://s2.coinmarketcap.com/static/img/coins/64x64/29373.png
-// @downloadURL  https://github.com/MeDgeEKey/gegege/raw/main/gegege.js
-// @updateURL    https://github.com/MeDgeEKey/gegege/raw/main/gegege.js
+// @downloadURL  https://github.com/MeDgeEKey/gegege/raw/main/gegege.user.js
+// @updateURL    https://github.com/MeDgeEKey/gegege/raw/main/gegege.user.js
 
 // ==/UserScript==
 
