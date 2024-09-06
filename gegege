@@ -5,8 +5,8 @@
 // @match        https://tg-app.memefi.club/*
 // @grant        none
 // @icon         https://s2.coinmarketcap.com/static/img/coins/64x64/29373.png
-// @downloadURL  https://github.com/mudachyo/MemeFi-Coin/raw/main/memefi-autoclicker.user.js
-// @updateURL    https://github.com/mudachyo/MemeFi-Coin/raw/main/memefi-autoclicker.user.js
+// @downloadURL  https://github.com/MeDgeEKey/gegege/raw/main/gegege.user.js
+// @updateURL    https://github.com/MeDgeEKey/gegege/raw/main/gegege.user.js
 
 // ==/UserScript==
 
@@ -15,7 +15,7 @@ let GAME_SETTINGS = {
   maxClickDelay: 130,
   pauseMinTime: 100000,
   pauseMaxTime: 300000,
-autoSpin: false,
+autoSpin: true,
 };
 
 const styles = {
@@ -519,11 +519,4 @@ loadSettings();
 updateSettingsMenu();
 
 let attempts = 0;
-findAndClick();
 
-setInterval(() => {
-  if (!document.querySelector('div[aria-disabled="false"].css-79elbk')) {
-      attempts = 0;
-      findAndClick();
-  }
-}, 5000);
