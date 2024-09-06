@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         MemeFI Autoclicker
-// @version      1.03
+// @version      1.04
 // @namespace    cheltbl
 // @author       cheltbl
 // @match        https://tg-app.memefi.club/*
@@ -179,7 +179,7 @@ function toggleAutoSpin() {
   autoSpinButton.textContent = GAME_SETTINGS.autoSpin ? 'AutoSpin: On' : 'AutoSpin: Off';
   autoSpinButton.style.backgroundColor = GAME_SETTINGS.autoSpin ? '#98c379' : '#e06c75';
   saveSettings();
-  if (GAME_SETTINGS.autoSpin) {
+  if (GAME_SETTINGS.autoSpin&&isSpinning==false) {
       clickButton();
   }
 }
@@ -222,14 +222,12 @@ function clickButton() {
 
   const button = document.querySelector('.css-58bkmv');
   if (button) {
-      // Создаем событие touchstart
       button.dispatchEvent(new TouchEvent('touchstart', { 
           bubbles: true, 
           cancelable: true, 
           touches: [new Touch({ identifier: 1, target: button })] 
       }));
-  
-      // Устанавливаем задержку в 5 секунд перед созданием события touchend
+      isSpinning = true;
       setTimeout(() => {
           button.dispatchEvent(new TouchEvent('touchend', { 
               bubbles: true, 
@@ -238,7 +236,7 @@ function clickButton() {
           }));
           button.click();
           messageBox.style.display = 'none';
-      }, 5000); // 5000 миллисекунд = 5 секунд
+      }, 5000);
   }
   else {
       messageBox.textContent = '[MemeFiBot] Не удалось найти кнопку спина!!! Spin button not found!!!';
@@ -533,4 +531,5 @@ loadSettings();
 updateSettingsMenu();
 
 let attempts = 0;
+let isSpinning =false
 toggleAutoSpin()
