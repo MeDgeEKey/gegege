@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         MemeFI Autoclicker
-// @version      1.04
+// @version      1.05
 // @namespace    cheltbl
 // @author       cheltbl
 // @match        https://tg-app.memefi.club/*
@@ -179,7 +179,7 @@ function toggleAutoSpin() {
   autoSpinButton.textContent = GAME_SETTINGS.autoSpin ? 'AutoSpin: On' : 'AutoSpin: Off';
   autoSpinButton.style.backgroundColor = GAME_SETTINGS.autoSpin ? '#98c379' : '#e06c75';
   saveSettings();
-  if (GAME_SETTINGS.autoSpin&&isSpinning==false) {
+  if (GAME_SETTINGS.autoSpin) {
       clickButton();
   }
 }
@@ -227,7 +227,6 @@ function clickButton() {
           cancelable: true, 
           touches: [new Touch({ identifier: 1, target: button })] 
       }));
-      isSpinning = true;
       setTimeout(() => {
           button.dispatchEvent(new TouchEvent('touchend', { 
               bubbles: true, 
@@ -531,5 +530,5 @@ loadSettings();
 updateSettingsMenu();
 
 let attempts = 0;
-let isSpinning =false
+
 toggleAutoSpin()
