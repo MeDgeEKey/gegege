@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         MemeFI Autoclicker
-// @version      1.06
+// @version      1.07
 // @namespace    cheltbl
 // @author       cheltbl
 // @match        https://tg-app.memefi.club/*
@@ -219,7 +219,7 @@ function waitForClaimButton() {
 }
 
 function clickButton() {
-  if (!GAME_SETTINGS.autoSpin) return;
+ // if (!GAME_SETTINGS.autoSpin) return;
 
   const button = document.querySelector('.css-58bkmv');
   if (button) {
@@ -245,7 +245,7 @@ function clickButton() {
           messageBox.style.display = 'none';
       }, 3000);
   }
-  setTimeout(clickButton, Math.random() * 2500 + 2500);
+  setTimeout(clickButton, 5000);
 }
 
 const settingsButton = document.createElement('button');
