@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         MemeFI Autoclicker
-// @version      1.07
+// @version      1.08
 // @namespace    cheltbl
 // @author       cheltbl
 // @match        https://tg-app.memefi.club/*
@@ -179,9 +179,9 @@ function toggleAutoSpin() {
   autoSpinButton.textContent = GAME_SETTINGS.autoSpin ? 'AutoSpin: On' : 'AutoSpin: Off';
   autoSpinButton.style.backgroundColor = GAME_SETTINGS.autoSpin ? '#98c379' : '#e06c75';
   saveSettings();
- // if (GAME_SETTINGS.autoSpin)
   {
       clickButton();
+    //  clickButton();
   }
 }
 
@@ -221,9 +221,24 @@ function waitForClaimButton() {
 function clickButton() {
  // if (!GAME_SETTINGS.autoSpin) return;
 
+  
   const button = document.querySelector('.css-58bkmv');
   if (button) {
-      button.dispatchEvent(new TouchEvent('touchstart', { 
+      setTimeout(clickTurnOnSpinsButton, 10000);
+  }
+  else {
+      messageBox.textContent = '[MemeFiBot] Не удалось найти кнопку спина!!! Spin button not found!!!';
+      messageBox.style.display = 'block';
+      setTimeout(() => {
+          messageBox.style.display = 'none';
+      }, 3000);
+  }
+  setTimeout(clickButton, 11000);
+}
+
+function clickTurnOnSpinsButton(){
+    const button = document.querySelector('.css-58bkmv');
+        button.dispatchEvent(new TouchEvent('touchstart', { 
           bubbles: true, 
           cancelable: true, 
           touches: [new Touch({ identifier: 1, target: button })] 
@@ -237,16 +252,8 @@ function clickButton() {
           button.click();
           messageBox.style.display = 'none';
       }, 5000);
-  }
-  else {
-      messageBox.textContent = '[MemeFiBot] Не удалось найти кнопку спина!!! Spin button not found!!!';
-      messageBox.style.display = 'block';
-      setTimeout(() => {
-          messageBox.style.display = 'none';
-      }, 3000);
-  }
-  setTimeout(clickButton, 5000);
 }
+  
 
 const settingsButton = document.createElement('button');
 settingsButton.className = 'settings-button';
